@@ -3,7 +3,6 @@
     "build": {
       "dockerfile": "Dockerfile"
     },
-    "workspaceMount": "",
     "remoteUser": "vscode",
     "containerEnv": {
         "HOME": "/home/vscode"
@@ -11,7 +10,7 @@
 
     "runArgs": [
         "--userns=keep-id",
-        "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z"
+        "--volume=${localWorkspaceFolder}/nix:/nix:z"
 
         // X11
         // NOT WORKING. Check out Toolbox: https://github.com/containers/toolbox/issues/610
@@ -21,6 +20,10 @@
         // "--net=host",
         // "--volume=${localEnv:XAUTHORITY}:/home/vscode/.Xauthority:Z"
     ],
+
+    // Install nix
+    "postCreateCommand": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/postCreate.sh",
+
     "customizations": {
         "vscode": {
             "extensions": [
