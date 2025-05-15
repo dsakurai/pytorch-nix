@@ -10,17 +10,26 @@
     in pkgs.mkShell {
       buildInputs = with pkgs; [
         python313
-        poetry # <- Uses Nix's default python by default
+        poetry # <- Uses Nix's system default python by default
+        pkgs.gcc.cc.lib # for jupyter
       ];
 
       shellHook = ''
+          # Pass the libraries (to poetry's virtual environment for using Python packages)
+          export "LD_LIBRARY_PATH=${pkgs.gcc.cc.lib}/lib:$LD_LIBRARY_PATH"
+
           poetry config virtualenvs.in-project true
           poetry init --no-interaction
+
           poetry env use python3.13
+          # Hard-code the Python version in the poetry project setting.
           sed -i 's/requires-python = ">=3.12"/requires-python = "^3.13"/' pyproject.toml
-          poetry add jupyterlab notebook ipykernel
-          # poetry env activate # <- Doesn't work well with nix because nix seems to prevent $PATH overrides...
-          echo "Poetry will use: $(poetry env use ${pkgs.python313}/bin/python3)"
+
+          # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
+          # poetry add jupyterlab notebook ipykernel
+
+          # Activate environment
+          eval $(poetry env activate)
         '';
 
     };
