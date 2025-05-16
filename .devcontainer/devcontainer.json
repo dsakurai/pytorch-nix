@@ -24,6 +24,12 @@
     // Install nix
     "postCreateCommand": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/postCreate.sh",
 
+    "features": {
+            // SSH-agent forwarding
+            "git": "os-provided",
+            "sshd": "latest"
+        },
+
     "customizations": {
         "vscode": {
             "extensions": [
