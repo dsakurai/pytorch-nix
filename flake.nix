@@ -27,6 +27,8 @@
 
           # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
           # poetry add jupyterlab notebook ipykernel
+          
+          poetry install --no-root # Install Python packages
 
           # Activate environment
           eval $(poetry env activate)
