@@ -12,7 +12,11 @@
         "--userns=keep-id",
         "--cap-add=SYS_ADMIN", // For WSL2S, where nix needs sethostname but can't due to tighter security (and WSL2's characteristics)
         "--security-opt", "seccomp=unconfined", // For WSL2 which has tighter security
-        "--volume=${localWorkspaceFolder}/nix:/nix:z"
+        // "--security-opt=label=disable", // NVIDIA GPU 
+        "--volume=${localWorkspaceFolder}/nix:/nix:z",
+        
+        "--device", "nvidia.com/gpu=all" // NVIDIA GPU
+ 
 
         // X11
         // NOT WORKING. Check out Toolbox: https://github.com/containers/toolbox/issues/610
