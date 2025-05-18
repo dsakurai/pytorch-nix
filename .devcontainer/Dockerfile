@@ -1,5 +1,5 @@
-# FROM debian:stable-slim
-FROM nvidia/cuda:11.0.3-base-ubuntu20.04
+FROM debian:stable-slim
+# FROM nvidia/cuda:11.0.3-base-ubuntu20.04
 # Install any additional packages you need
 
 RUN apt update && \
