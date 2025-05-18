@@ -1,5 +1,5 @@
 [project]
-name = "jupyter-nix"
+name = "nix-vscode"
 version = "0.1.0"
 description = ""
 authors = [
@@ -8,9 +8,6 @@ authors = [
 readme = "README.md"
 requires-python = "^3.12"
 dependencies = [
-    "jupyterlab (>=4.4.2,<5.0.0)",
-    "notebook (>=7.4.2,<8.0.0)",
-    "ipykernel (>=6.29.5,<7.0.0)",
     "torch (>=2.7.0,<3.0.0)"
 ]
 
@@ -18,3 +15,12 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "torch_source_cuda128"
+url = "https://download.pytorch.org/whl/cu128"
+priority = "explicit"
+
+
+[tool.poetry.dependencies]
+torch = {source = "torch_source_cuda128"}
