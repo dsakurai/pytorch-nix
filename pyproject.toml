@@ -10,7 +10,8 @@ requires-python = "^3.12"
 dependencies = [
     "jupyterlab (>=4.4.2,<5.0.0)",
     "notebook (>=7.4.2,<8.0.0)",
-    "ipykernel (>=6.29.5,<7.0.0)"
+    "ipykernel (>=6.29.5,<7.0.0)",
+    "torch (>=2.7.0,<3.0.0)"
 ]
 
 

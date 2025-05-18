@@ -16,8 +16,7 @@
     in pkgs.mkShell {
       buildInputs = with pkgs; [
         python312
-        python312Packages.pytorch-bin
-        # python312Packages.pytorchWithCuda
+        # python312Packages.pytorch-bin # for pytorch from nixpkgs, tested with WSL2 (with CUDA) and podman, where the podman machine has NVIDIA's nvidia's container toolkit installed.
         poetry # <- Uses Nix's system default python by default
         pkgs.gcc.cc.lib # for jupyter
       ];

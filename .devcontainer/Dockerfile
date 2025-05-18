@@ -23,11 +23,6 @@ RUN apt update && \
 #     tee /etc/apt/sources.list.d/nvidia-container-toolkit.list && \
 #     apt-get install -y nvidia-container-toolkit
 
-RUN apt update && sudo apt install -y \
-    python3 \
-    python3-pip \
-    python-is-python3
-
 # For VSCode
 RUN adduser --disabled-password --gecos "" vscode && adduser vscode sudo
 
