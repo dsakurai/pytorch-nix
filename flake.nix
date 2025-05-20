@@ -63,7 +63,6 @@
 
           # Activate environment
           eval $(poetry env activate)
-          jupyter notebook --generate-config
           jupyter lab --no-browser # Start server
         '';
 
