@@ -29,7 +29,8 @@
       shellHook = ''
           # Pass the libraries (to poetry's virtual environment for using Python packages)
           export "LD_LIBRARY_PATH=${pkgs.gcc.cc.lib}/lib:$LD_LIBRARY_PATH" # Used by torch
-
+          
+          export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter"
 
           # Find libcuda for WSL
           CUDA_PATH=$(find /usr/lib/wsl/drivers -name 'libcuda.so.*' | head -n1)
@@ -56,12 +57,14 @@
           poetry add 'numpy<2.0' # Old pytorch versions require numpy 1.
 
           # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
-          # poetry add jupyterlab notebook ipykernel
+          poetry add jupyterlab notebook ipykernel
           
           poetry install --no-root # Install Python packages
 
           # Activate environment
-          # eval $(poetry env activate)
+          eval $(poetry env activate)
+          jupyter notebook --generate-config
+          jupyter lab --no-browser # Start server
         '';
 
     };
