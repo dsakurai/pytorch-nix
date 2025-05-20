@@ -62,8 +62,8 @@
           poetry install --no-root # Install Python packages
 
           # Activate environment
-          eval $(poetry env activate)
-          jupyter lab --no-browser # Start server
+          # eval $(poetry env activate)
+          # jupyter lab --no-browser # Start server
         '';
 
     };
