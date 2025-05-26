@@ -11,4 +11,4 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 # Change directory to this script's
 cd "$SCRIPT_DIR/project"
 
-nix develop --extra-experimental-features nix-command --extra-experimental-features flakes ../nix-flakes --command bash -c 'eval $(poetry env activate) && jupyter lab --no-browser'
+nix develop --extra-experimental-features nix-command --extra-experimental-features flakes ../nix-scripts --command bash -c 'eval $(poetry env activate) && jupyter lab --no-browser'
