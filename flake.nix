@@ -30,8 +30,6 @@
           # Pass the libraries (to poetry's virtual environment for using Python packages)
           export "LD_LIBRARY_PATH=${pkgs.gcc.cc.lib}/lib:$LD_LIBRARY_PATH" # Used by torch
           
-          export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter"
-
           # Find libcuda for WSL
           CUDA_PATH=$(find /usr/lib/wsl/drivers -name 'libcuda.so.*' | head -n1)
           if [ -n "$CUDA_PATH" ]; then
@@ -41,6 +39,8 @@
           else
             echo "[WARN] libcuda.so not found"
           fi
+
+          export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter"
 
           poetry config virtualenvs.in-project true
           poetry init --no-interaction
@@ -58,7 +58,7 @@
 
           # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
           poetry add jupyterlab notebook ipykernel plotly
-          
+
           poetry install --no-root # Install Python packages
 
           # Activate environment
