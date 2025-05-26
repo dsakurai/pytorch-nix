@@ -23,6 +23,11 @@ RUN apt update && \
 # For VSCode
 RUN adduser --disabled-password --gecos "" vscode && adduser vscode sudo
 
+# /nix for a non-root user `vscode`. Not perfect, but OK.
+RUN mkdir -p /nix && \
+    chown vscode:vscode /nix && \    
+    chmod 0755 /nix
+
 USER vscode
 
 ENV PATH="/home/vscode/.nix-profile/bin:$PATH"

@@ -13,7 +13,7 @@
         "--cap-add=SYS_ADMIN", // For WSL2S, where nix needs sethostname but can't due to tighter security (and WSL2's characteristics)
         "--security-opt", "seccomp=unconfined", // For WSL2 which has tighter security
         // "--security-opt=label=disable", // NVIDIA GPU 
-        "--volume=${localWorkspaceFolder}/nix:/nix:z",
+        "--volume=${localWorkspaceFolder}/nix-store:/nix/store:z",
         
         "--device", "nvidia.com/gpu=all" // NVIDIA GPU
  
