@@ -30,6 +30,8 @@
     // Install nix
     "postCreateCommand": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/postCreate.sh",
 
+    "postStartCommand": "/workspaces/${localWorkspaceFolderBasename}/jupyter-lab-nix.sh",
+
     "features": {
             // SSH-agent forwarding
             "git": "os-provided",
@@ -39,6 +41,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-python.python"
             ]
         }
     }
