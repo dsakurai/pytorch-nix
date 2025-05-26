@@ -2,11 +2,17 @@ FROM debian:stable-slim
 # FROM nvidia/cuda:11.0.3-base-ubuntu20.04
 # Install any additional packages you need
 
+# Purely necessary for VSCode
 RUN apt update && \
-    apt install -y git curl vim sudo && \
+    apt install -y sudo && \
     # Clean up apt cache when done
     rm -rf /var/lib/apt/lists/*
-    # You'd also want sshd if not auto-installed.
+
+# Tools
+RUN apt update && \
+    apt install -y git curl vim tree && \
+    # Clean up apt cache when done
+    rm -rf /var/lib/apt/lists/*
 
 # For Nix
 RUN apt update && \
