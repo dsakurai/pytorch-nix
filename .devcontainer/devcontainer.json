@@ -30,7 +30,7 @@
     // Install nix
     "postCreateCommand": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/postCreate.sh",
 
-    "postStartCommand": "/workspaces/${localWorkspaceFolderBasename}/source/jupyter-lab-nix.sh",
+    "postStartCommand": "/workspaces/${localWorkspaceFolderBasename}/project/jupyter-lab-nix.sh",
 
     "features": {
             // SSH-agent forwarding

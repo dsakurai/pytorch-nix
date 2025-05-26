@@ -1,6 +1,10 @@
 #!/usr/bin/env /bin/bash
 set -e
 
+#
+# Run jupyter lab
+#
+
 # the directory of this script
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
