@@ -1,4 +1,3 @@
 /nix
 /.venv
-/.jupyter/migrated
-/.jupyter/lab
+.jupyter
