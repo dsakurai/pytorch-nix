@@ -40,8 +40,6 @@
             echo "[WARN] libcuda.so not found"
           fi
 
-          export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter"
-
           poetry config virtualenvs.in-project true
           poetry init --no-interaction
         '';
