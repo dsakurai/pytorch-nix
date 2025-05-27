@@ -13,7 +13,8 @@ dependencies = [
     "jupyterlab (>=4.4.2,<5.0.0)",
     "notebook (>=7.4.2,<8.0.0)",
     "ipykernel (>=6.29.5,<7.0.0)",
-    "plotly (>=6.1.1,<7.0.0)"
+    "plotly (>=6.1.1,<7.0.0)",
+    "kaleido (==0.2.1)"
 ]
 
 

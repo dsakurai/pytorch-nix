@@ -57,7 +57,7 @@
           poetry add 'numpy<2.0' # Old pytorch versions require numpy 1.
 
           # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
-          poetry add jupyterlab notebook ipykernel plotly
+          poetry add jupyterlab notebook ipykernel plotly kaleido==0.2.1
 
           poetry install --no-root # Install Python packages
 
