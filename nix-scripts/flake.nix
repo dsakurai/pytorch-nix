@@ -44,26 +44,6 @@
 
           poetry config virtualenvs.in-project true
           poetry init --no-interaction
-
-          poetry env use python3.12
-          # Hard-code the Python version in the poetry project setting.
-          sed -i 's/requires-python = ">=3.12"/requires-python = "^3.12"/' pyproject.toml
-
-          # Create custom target like torch_source_cuda126 
-          poetry source add torch_source_cuda126 --priority=explicit https://download.pytorch.org/whl/cu126 # See for example, https://zenn.dev/zerebom/articles/b338784c8ac76a (Poetry1.5.1からGPU版のPytorchのインストールが簡単になりました)
-          poetry add torch --source torch_source_cuda126 # Other packages like torchvision torchaudio can also be added this way.
-
-          # numpy
-          poetry add 'numpy<2.0' # Old pytorch versions require numpy 1.
-
-          # You may add Python packages with poetry here, but it will be saved in the TOML file anyway.
-          poetry add jupyterlab notebook ipykernel plotly kaleido==0.2.1
-
-          poetry install --no-root # Install Python packages
-
-          # Activate environment
-          # eval $(poetry env activate)
-          # jupyter lab --no-browser # Start server
         '';
 
     };
