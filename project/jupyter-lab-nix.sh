@@ -9,6 +9,6 @@ set -e
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
 # Change directory to this script's
-cd "$SCRIPT_DIR/project"
+cd "$SCRIPT_DIR"
 
 nix develop --extra-experimental-features nix-command --extra-experimental-features flakes ../nix-scripts --command bash -c 'eval $(poetry env activate) && export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter" && jupyter lab --no-browser'
