@@ -41,7 +41,7 @@
           fi
 
           poetry config virtualenvs.in-project true
-          poetry install
+          poetry install --no-root
         '';
 
     };
