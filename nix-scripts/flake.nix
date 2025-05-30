@@ -42,6 +42,10 @@
 
           poetry config virtualenvs.in-project true
           poetry install --no-root
+
+          export JUPYTER_CONFIG_DIR="$(pwd)/.jupyter"
+
+          eval $(poetry env activate)
         '';
 
     };
